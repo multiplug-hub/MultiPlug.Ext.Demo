@@ -1,0 +1,211 @@
+﻿@model MultiPlug.Base.Http.EdgeApp
+
+<section class="row-fluid"><h2>Extensions Demonstration</h2></section>
+<section class="row-fluid">
+  
+    <h3 class="box-header">
+        IFTTT Timer
+    </h3>
+    <div class="box">
+        <div class="span2">
+            <p>
+                <button id="start-timer" class="btn btn-large btn-green" type="button">Start</button>
+            </p>
+            <p>
+                <button id="stop-timer" class="btn btn-large btn-red" type="button">Stop</button>
+            </p>
+        </div>
+
+        <div class="span10">
+            <p>
+                <h4 id="currenttime">--/--/---- --:--:--.--- --</h4>
+            </p>
+            <p>Subscribed to Timer event: 2a4c7bc2-ba5d-4522-9d91-19c79f68f1cc</p>
+        </div>
+    </div>
+
+    <section class="row-fluid">
+        <div class="span6">
+
+            <h3 class="box-header">
+                Transformation - Regular Expression
+            </h3>
+            <div class="box">
+                <div class="span12">
+                    <p>
+                        <h4 id="currenttime-regex">--:--:--.--</h4>
+                    </p>
+                    <p>Subscribed to Transformation event: 2a4c7bc2-ba5d-4522-9d91-19c79f68f1cd using regex ([^ ])+ and the second match.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="span6">
+            <h3 class="box-header">
+                Transformation - Counter
+            </h3>
+            <div class="box">
+                <div class="span4">
+                    <div id="counter"></div><div id="counter-green"></div>
+                </div>
+
+                <div class="span8">
+                    <p>Subscribed to Counter event: 2a4c7bc2-ba5d-4522-9d91-19c79f68f1ce</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="row-fluid">
+        <div class="span6">
+
+            <h3 class="box-header">
+                Vision capture
+            </h3>
+            <div class="box">
+                <div class="span6">
+                    <img id="imagecapture" src="/extensions/vision/images/capture.jpg">
+                </div>
+
+                <div class="span6">
+                    <p>Subscribed to Vision event: 2a4c7bc2-ba5d-4522-9d91-19c79f68f1cf</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="span6">
+
+        </div>
+    </section>
+
+    <section class="row-fluid">
+
+        <div class="span6">
+            <h3 class="box-header">
+                Exceptions
+            </h3>
+            <div class="box">
+                <div class="span12">
+                    <p>
+                        <button id="invoke-exception" class="btn btn-large btn-orange" type="button">Event Exception</button>
+                        <button id="invoke-threadedexception" class="btn btn-large btn-orange" type="button">Threaded Event Exception</button>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</section>
+
+
+<style>
+    #counter {
+       height: 50px;
+       width: 100%;
+    
+       color: black;
+       background-color: red; 
+    
+        transition: background-color 0.5s linear; 
+       -moz-transition: background-color 0.5s linear;  
+       -webkit-transition: background-color 0.5s linear; 
+       -ms-transition: background-color 0.5s linear; 
+    }
+
+    #counter-green {
+       height: 50px;
+       width: 100%;
+    
+       color: black;
+       background-color: transparent;
+    
+        transition: background-color 0.5s linear; 
+       -moz-transition: background-color 0.5s linear;  
+       -webkit-transition: background-color 0.5s linear; 
+       -ms-transition: background-color 0.5s linear; 
+    }
+
+    img{
+        width: 100%;
+        height: auto;
+    }
+
+</style>
+
+<script>
+
+    window.addEventListener("multiplugReady", function (e) {
+        $.connection.wS.on("Send", function (id, Group) {
+
+            if (id == '2a4c7bc2-ba5d-4522-9d91-19c79f68f1cc') {
+                var GuidTV = Group.Pairs.find(function (pair) { return pair.Type == 'time' });
+
+                $('#currenttime').text(GuidTV.Value);
+            }
+            else if (id == '2a4c7bc2-ba5d-4522-9d91-19c79f68f1cd') {
+                var GuidTV = Group.Pairs.find(function (pair) { return pair.Type == 'time' });
+                $('#currenttime-regex').text(GuidTV.Value);
+            }
+            else if (id == '2a4c7bc2-ba5d-4522-9d91-19c79f68f1ce') {
+
+                var counterdiv = $('#counter');
+
+                if (counterdiv.css("background-color") == "rgb(255, 0, 0)")
+                {
+                    counterdiv.css("background-color", "transparent");
+                }
+                else
+                {
+                    counterdiv.css("background-color", "red");
+                }
+
+                var counterdiv = $('#counter-green');
+
+                if (counterdiv.css("background-color") == "rgb(0, 128, 0)")
+                {
+                    counterdiv.css("background-color", "transparent");
+                }
+                else {
+                    counterdiv.css("background-color", "green");
+                }
+            }
+            else if (id == '2a4c7bc2-ba5d-4522-9d91-19c79f68f1cf')
+            {
+                var UrlTV = Group.Pairs.find(function (pair) { return pair.Type == 'url' });
+
+                document.getElementById("imagecapture").src = UrlTV.Value;// + new Date().getTime();
+            }
+        });
+
+        $('#start-timer').click(function (e) {
+            e.preventDefault();
+            $.connection.wS.server.send({ Id: "Start-Timer", Pairs: [] });
+        });
+
+        $('#stop-timer').click(function (e) {
+            e.preventDefault();
+            $.connection.wS.server.send({ Id: "Stop-Timer", Pairs: [] });
+        });
+
+        $('#invoke-exception').click(function (e) {
+            e.preventDefault();
+            $.connection.wS.server.send({ Id: "@Model.Extension.Model.ExceptionEventId", Pairs: [] });
+        });
+
+        $('#invoke-threadedexception').click(function (e) {
+            e.preventDefault();
+            $.connection.wS.server.send({ Id: "@Model.Extension.Model.ThreadedExceptionEventId", Pairs: [] });
+        });
+
+        $('#invoke-stationstatechanged').click(function (e) {
+            e.preventDefault();
+            $.connection.wS.server.send({ Id: "@Model.Extension.Model.StationStateChangedEventId", Pairs: [{ "Type": "NewState", "Value": "On" }, { "Type": "OldState", "Value": "Off" }] });
+        });
+
+    });
+
+</script>
