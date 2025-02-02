@@ -16,86 +16,78 @@
             </div>
         </div>
 
+        @Include("MultiPlug.Ext.Demo.Demo_Settings_Navigation")
+
         <div class="row-fluid">
             <div class="span12">
-                <h3 class="box-header">
-                    Subscriptions
-                </h3>
-                <div class="box">
+                <h3 class="box-header">Subscriptions</h3>
+                <div class="box non-collapsible">
+                    <h4>Event Trace App</h4>
                     <div class="row-fluid">
-                        <div class="span1">
-                        </div>
+                        <div class="well">
+                            <div class="row-fluid">
+                                <table id="SubscriptionsTable" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="span10">Subscription</th>
+                                            <th class="span2"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var Subscription in @Model.Extension.Model)
+                                        {
+                                            <tr>
+                                                <td class="span10"><p>@Subscription</p></td>
+                                                <td class="span2">
+                                                    <a class="btn btn-red btn-deletesubscription" href="@Raw(Model.Context.Paths.Home)subscription/delete/?id=@Subscription"><i class="icon-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
 
-                        <div class="span11">
-                            <b>Subscription</b>
+                                        <tr>
+                                            <td class="span10"></td>
+                                            <td class="span2"><button type="button" class="btn btn-green" id="btn-subscription"><i class="icon-plus"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    <ul id="subscriptions" style="list-style: none;">
-                        @foreach (var Subscription in @Model.Extension.Model)
-                        {
-                            <li>
-                                <div class="row-fluid">
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <div class="span1">
-                                                <button value="@Subscription" type="button" class="item btn btn-red delete-sub"><i class="icon-trash icon-large"></i></button>
-                                            </div>
-                                            <div class="span11">
-                                                <input name="SubscriptionId" class="input-block-level mp-event-picker" type="text" value="@Subscription" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        }
-                    </ul>
-                    <ul style="list-style: none;">
-                        <li>
-                            <div class="control-group">
-                                <div class="controls">
-                                    <div class="span1">
-                                        <button type="button" id="newsubscription" class="btn btn-green"><i class="icon-plus icon-large"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
-
     </section>
 </form>
 
 <script>
-    function ApplyDelete(theSelector) {
-        $(theSelector).on('click', '.delete-sub', function () {
-            var id = $(this).attr('value');
-            var closestli = $(this).closest("li");
-            closestli.remove();
-        });
+    function NewSubscription() {
+        return '<tr>\
+                    <td class="span10"><input type="text" name="SubscriptionId" class="input-block-level mp-event-picker" value="" autocomplete="off"></td>\
+                    <td class="span2"><a class="btn btn-red btn-deletesubscriptiontemp" href="#"><i class="icon-trash"></i></a></td>\
+                </tr>'
     }
 
-    $('#newsubscription').on('click', function () {
-        $('#subscriptions').append(
-            '<li>\
-                <div class="row-fluid">\
-                    <div class="control-group">\
-                        <div class="controls">\
-                            <div class="span1">\
-                                <button value="" type="button" class="item btn btn-red delete-sub"><i class="icon-trash icon-large"></i></button>\
-                            </div>\
-                            <div class="span11">\
-                                <input name="SubscriptionId" class="input-block-level mp-event-picker" type="text" value="" />\
-                            </div>\
-                        </div>\
-                    </div>\
-                </div>\
-            </li>'
-        );
-        var newsubscription = $('#subscriptions li:last-child');
+    $("#btn-subscription").click(function () {
+        $('#SubscriptionsTable tr:last').before(NewSubscription());
+
+        $(".btn-deletesubscriptiontemp").click(function (event) {
+            event.preventDefault();
+            $(this).closest("tr").remove();
+        });
+
         applyMPEventPickerOnClick();
     });
 
-    ApplyDelete(document);
+    $(".btn-deletesubscription").click(function (event) {
+        event.preventDefault();
+
+        var theRow = $(this).closest("tr");
+
+        $.post($(this).attr('href'), function (data) {
+
+        })
+        .done(function () {
+            theRow.remove();
+        });
+    });
 </script>

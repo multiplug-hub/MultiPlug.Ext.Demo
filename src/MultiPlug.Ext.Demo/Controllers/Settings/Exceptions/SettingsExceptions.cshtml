@@ -1,0 +1,204 @@
+﻿@model MultiPlug.Base.Http.EdgeApp
+
+@functions
+{
+    string isEnabled(bool theValue)
+    {
+        return (theValue) ? "checked" : "";
+    }
+}
+
+<form action="" method="post" accept-charset="utf-8" enctype="application/x-www-form-urlencoded">
+    <section class="row-fluid">
+
+        <div class="row-fluid">
+            <div class="box">
+                <div class="span2">
+                </div>
+                <div class="span8">
+                    <p style="font-size:26px; line-height: 54px; text-align: center; margin: 0px;">Demo and Debug</p>
+                </div>
+                <div class="span2" style="text-align: right;">
+                    <button type="submit" value="submit" style="height:54px; width:65px" class="item btn btn-green"><i class="icon-save icon-large"></i><p>Save</p></button>
+                </div>
+            </div>
+        </div>
+
+        @Include("MultiPlug.Ext.Demo.Demo_Settings_Navigation")
+
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="box non-collapsible">
+                    <div class="span6">
+                        <h4>Exceptions</h4>
+                        <div class="row-fluid">
+                            <div class="well">
+                                <div class="row-fluid">
+                                    <p><b>Start up</b></p>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="ConstructorException" value="true" @isEnabled(Model.Extension.Model.ConstructorException)>
+                                        Constructor
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <p><b>Runtime</b></p>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="EventsException" value="true" @isEnabled(Model.Extension.Model.EventsException)>
+                                        Events
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="RazorTemplatesException" value="true" @isEnabled(Model.Extension.Model.RazorTemplatesException)>
+                                        Razor Templates
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="InitialiseException" value="true" @isEnabled(Model.Extension.Model.InitialiseException)>
+                                        Initialise
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="StartException" value="true" @isEnabled(Model.Extension.Model.StartException)>
+                                        Start
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="SubscriptionsException" value="true" @isEnabled(Model.Extension.Model.SubscriptionsException)>
+                                        Subscriptions
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="LoadException" value="true" @isEnabled(Model.Extension.Model.LoadException)>
+                                        Load
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="SaveException" value="true" @isEnabled(Model.Extension.Model.SaveException)>
+                                        Save
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="PauseException" value="true" @isEnabled(Model.Extension.Model.PauseException)>
+                                        Pause
+                                    </label>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="ShutdownException" value="true" @isEnabled(Model.Extension.Model.ShutdownException)>
+                                        Shutdown
+                                    </label>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <p><b>Start Now</b></p>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <button id="btn-invokethreadedexception" class="btn btn-red" type="button"><i class="icon-exclamation-sign icon-large"></i> Unhandled Exception</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <h4>Execution Delays (Seconds)</h4>
+                        <div class="row-fluid">
+                            <div class="well">
+                                <div class="row-fluid">
+                                    <p><b>Start up</b></p>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="number" min="0" name="ConstructorDelay" value="@Model.Extension.Model.ConstructorDelay">
+                                        Constructor
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <p><b>Runtime</b></p>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="number" min="0" name="EventsDelay" value="@Model.Extension.Model.EventsDelay">
+                                        Events
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="number" min="0" name="RazorTemplatesDelay" value="@Model.Extension.Model.RazorTemplatesDelay">
+                                        Razor Templates
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="number" min="0" name="InitialiseDelay" value="@Model.Extension.Model.InitialiseDelay">
+                                        Initialise
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="number" min="0" name="StartDelay" value="@Model.Extension.Model.StartDelay">
+                                        Start
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="number" min="0" name="SubscriptionsDelay" value="@Model.Extension.Model.SubscriptionsDelay">
+                                        Subscriptions
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="number" min="0" name="LoadDelay" value="@Model.Extension.Model.LoadDelay">
+                                        Load
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="number" min="0" name="SaveDelay" value="@Model.Extension.Model.SaveDelay">
+                                        Save
+                                    </label>
+                                </div>
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="number" min="0" name="PauseDelay" value="@Model.Extension.Model.PauseDelay">
+                                        Pause
+                                    </label>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <label class="checkbox">
+                                        <input type="number" min="0" name="ShutdownDelay" value="@Model.Extension.Model.ShutdownDelay">
+                                        Shutdown
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+
+<script>
+    $("#btn-invokethreadedexception").click(function (event) {
+        event.preventDefault();
+
+        $.post("@Raw(Model.Context.Paths.Home)exceptions/unhandled", function (data) {
+        })
+        .done(function () {
+        });
+    });
+</script>

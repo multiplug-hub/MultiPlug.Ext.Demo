@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using MultiPlug.Base.Exchange;
 using MultiPlug.Ext.Demo.Models.Properties;
 
 namespace MultiPlug.Ext.Demo.Components.Exceptions
@@ -10,29 +9,15 @@ namespace MultiPlug.Ext.Demo.Components.Exceptions
 
         public ThreadExceptionComponent()
         {
-            var Id = Guid.NewGuid().ToString();
-
-            Event = new Base.Exchange.EventExternal
-            {
-                Guid = Guid.NewGuid().ToString(),
-                Id = Id,
-                Description = "Triggers a threaded Event Exception"
-            };
-            Subscription = new Base.Exchange.Subscription
-            {
-                Guid = Guid.NewGuid().ToString(),
-                Id = Id
-            };
-
-            Subscription.Event += OnEvent;
         }
 
-        private void OnEvent(SubscriptionEvent obj)
+        internal void InvokeException()
         {
-            new System.Threading.Thread(() =>
+            new Thread(() =>
             {
                 Thread.CurrentThread.IsBackground = true;
-                throw new Exception();
+                Thread.Sleep(1000);
+                throw new Exception("Unhandled Exception started by user");
             }).Start();
         }
     }

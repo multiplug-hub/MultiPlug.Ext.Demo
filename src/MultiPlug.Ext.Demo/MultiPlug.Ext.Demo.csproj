@@ -39,6 +39,10 @@
       <HintPath>packages\MultiPlug.Extension.Core.1.0.63\lib\net472\MultiPlug.Extension.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\i4Core\Connector\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -51,28 +55,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\EventTrace\EventTraceComponent.cs" />
-    <Compile Include="Components\Exceptions\EventExceptionComponent.cs" />
     <Compile Include="Components\Exceptions\ThreadExceptionComponent.cs" />
+    <Compile Include="Components\Ping\PingComponent.cs" />
+    <Compile Include="Components\SettingsFile\SettingsFileComponent.cs" />
     <Compile Include="Components\Timer\TimerComponent.cs" />
+    <Compile Include="Controllers\Apps\RazorError\HomeController.cs" />
+    <Compile Include="Controllers\Apps\RazorError\RazorErrorApp.cs" />
+    <Compile Include="Controllers\Apps\ViewException\HomeController.cs" />
+    <Compile Include="Controllers\Apps\ViewException\ViewExceptionApp.cs" />
+    <Compile Include="Controllers\Settings\EventTrace\SubscriptionDeleteController.cs" />
+    <Compile Include="Controllers\Settings\Exceptions\ExceptionsController.cs" />
+    <Compile Include="Controllers\Settings\Exceptions\UnhandledExceptionController.cs" />
+    <Compile Include="Controllers\Settings\Home\HomeController.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="Demo.cs" />
     <Compile Include="Models\Apps\SubscriptionsPostModel.cs" />
     <Compile Include="Models\Components\EventTrace\EventTraceProperties.cs" />
+    <Compile Include="Models\Components\SettingsFile\LocalSettings.cs" />
     <Compile Include="Models\Load\Root.cs" />
     <Compile Include="Models\Properties\EventExceptionProperties.cs" />
     <Compile Include="Models\Properties\ThreadExceptionProperties.cs" />
     <Compile Include="Models\Properties\Timer.cs" />
+    <Compile Include="Models\Settings\ExceptionsModel.cs" />
+    <Compile Include="Models\Settings\HomeModel.cs" />
     <Compile Include="Models\View\DemoDashboardApp3.cs" />
     <Compile Include="Models\View\EventTraceModel.cs" />
     <Compile Include="Models\View\ProjectorApp.cs" />
+    <Compile Include="Models\View\RazorErrorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Apps\DemoDashboard3\DemoDashboardApp3.cs" />
-    <Compile Include="Controllers\Apps\DemoDashboard3\HomeController.cs" />
     <Compile Include="Controllers\Apps\DemoDashboard\DemoDashboardApp.cs" />
     <Compile Include="Controllers\Apps\DemoDashboard\GetHome.cs" />
     <Compile Include="Controllers\Apps\EventTrace\EventTraceApp.cs" />
@@ -84,17 +99,20 @@
     <Compile Include="Controllers\Assets\CSS\GetCss.cs" />
     <Compile Include="Controllers\Assets\JS\GetJs.cs" />
     <Compile Include="Controllers\Assets\JS\JsAssetsHandler.cs" />
-    <Compile Include="Controllers\Settings\EventTrace\SettingsEventTraceController.cs" />
+    <Compile Include="Controllers\Settings\EventTrace\EventTraceController.cs" />
     <Compile Include="Controllers\Settings\SettingsApp.cs" />
     <Compile Include="Controllers\Templates.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Controllers\Apps\DemoDashboard3\DemoDashboardApp3.cshtml" />
     <None Include="Controllers\Apps\DemoDashboard\Home.cshtml" />
     <None Include="Controllers\Apps\EventTrace\EventTrace.cshtml" />
     <None Include="Controllers\Apps\ExampleFileUpload\ExampleFileUpload.cshtml" />
     <None Include="Controllers\Apps\Projector\ProjectorApp.cshtml" />
+    <None Include="Controllers\Apps\RazorError\RazorError.cshtml" />
     <None Include="Controllers\Settings\EventTrace\SettingsEventTrace.cshtml" />
+    <None Include="Controllers\Settings\Exceptions\SettingsExceptions.cshtml" />
+    <None Include="Controllers\Settings\Home\SettingsHome.cshtml" />
+    <None Include="Controllers\Settings\SharedRazor\SettingsNavigation.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

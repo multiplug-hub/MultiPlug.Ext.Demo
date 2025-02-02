@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="DemoDashboardApp3_cshtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Controllers\Apps\DemoDashboard3\DemoDashboardApp3.cshtml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="Home_cshtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Controllers\Apps\DemoDashboard\Home.cshtml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
@@ -136,10 +133,22 @@
   <data name="EventTrace_cshtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Controllers\Apps\EventTrace\EventTrace.cshtml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="SettingsEventTrace_cshtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Controllers\Settings\EventTrace\SettingsEventTrace.cshtml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="ExampleFileUpload_cshtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Controllers\Apps\ExampleFileUpload\ExampleFileUpload.cshtml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SettingsNavigation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Controllers\Settings\SharedRazor\SettingsNavigation.cshtml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SettingsEventTrace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Controllers\Settings\EventTrace\SettingsEventTrace.cshtml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SettingsExceptions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Controllers\Settings\Exceptions\SettingsExceptions.cshtml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SettingsHome" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Controllers\Settings\Home\SettingsHome.cshtml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RazorError_cshtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Controllers\Apps\RazorError\RazorError.cshtml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

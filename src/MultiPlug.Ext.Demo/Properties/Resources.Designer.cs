@@ -62,30 +62,6 @@ namespace MultiPlug.Ext.Demo.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to @model MultiPlug.Base.Http.EdgeApp
-        ///
-        ///&lt;section class=&quot;row-fluid&quot;&gt;&lt;h2&gt;Extensions Demonstration&lt;/h2&gt;&lt;/section&gt;
-        ///&lt;section class=&quot;row-fluid&quot;&gt;
-        ///  
-        ///    &lt;h3 class=&quot;box-header&quot;&gt;
-        ///        IFTTT Timer
-        ///    &lt;/h3&gt;
-        ///    &lt;div class=&quot;box&quot;&gt;
-        ///        &lt;div class=&quot;span2&quot;&gt;
-        ///            &lt;p&gt;
-        ///                &lt;button id=&quot;start-timer&quot; class=&quot;btn btn-large btn-green&quot; type=&quot;button&quot;&gt;Start&lt;/button&gt;
-        ///            &lt;/p&gt;
-        ///            &lt;p&gt;
-        ///                &lt;button id=&quot;stop-timer&quot; class=&quot;btn btn-large btn-red&quot; type=&quot;button&quot;&gt;Stop&lt;/button&gt;
-        ///   [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string DemoDashboardApp3_cshtml {
-            get {
-                return ResourceManager.GetString("DemoDashboardApp3_cshtml", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to @model MultiPlug.Base.Http.EdgeApp
         ///&lt;section class=&quot;row-fluid&quot;&gt;
         ///    &lt;div class=&quot;row-fluid&quot;&gt;
         ///        &lt;div class=&quot;box&quot;&gt;
@@ -211,6 +187,17 @@ namespace MultiPlug.Ext.Demo.Properties {
         /// <summary>
         ///   Looks up a localized string similar to @model MultiPlug.Base.Http.EdgeApp
         ///
+        ///@Raw(Model.Extension.Model.Unknown).
+        /// </summary>
+        internal static string RazorError_cshtml {
+            get {
+                return ResourceManager.GetString("RazorError_cshtml", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @model MultiPlug.Base.Http.EdgeApp
+        ///
         ///&lt;form action=&quot;&quot; method=&quot;post&quot; accept-charset=&quot;utf-8&quot; enctype=&quot;application/x-www-form-urlencoded&quot;&gt;
         ///    &lt;section class=&quot;row-fluid&quot;&gt;
         ///
@@ -223,9 +210,80 @@ namespace MultiPlug.Ext.Demo.Properties {
         ///                &lt;/div&gt;
         ///                &lt;div cla [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string SettingsEventTrace_cshtml {
+        internal static string SettingsEventTrace {
             get {
-                return ResourceManager.GetString("SettingsEventTrace_cshtml", resourceCulture);
+                return ResourceManager.GetString("SettingsEventTrace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @model MultiPlug.Base.Http.EdgeApp
+        ///
+        ///@functions
+        ///{
+        ///    string isEnabled(bool theValue)
+        ///    {
+        ///        return (theValue) ? &quot;checked&quot; : &quot;&quot;;
+        ///    }
+        ///}
+        ///
+        ///&lt;form action=&quot;&quot; method=&quot;post&quot; accept-charset=&quot;utf-8&quot; enctype=&quot;application/x-www-form-urlencoded&quot;&gt;
+        ///    &lt;section class=&quot;row-fluid&quot;&gt;
+        ///
+        ///        &lt;div class=&quot;row-fluid&quot;&gt;
+        ///            &lt;div class=&quot;box&quot;&gt;
+        ///                &lt;div class=&quot;span2&quot;&gt;
+        ///                &lt;/div&gt;
+        ///                &lt;div class=&quot;span8&quot;&gt;
+        ///                    &lt;p style=&quot;font-size:26px; line-height: 54p [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SettingsExceptions {
+            get {
+                return ResourceManager.GetString("SettingsExceptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @model MultiPlug.Base.Http.EdgeApp
+        ///
+        ///&lt;form action=&quot;&quot; method=&quot;post&quot; accept-charset=&quot;utf-8&quot; enctype=&quot;application/x-www-form-urlencoded&quot;&gt;
+        ///    &lt;section class=&quot;row-fluid&quot;&gt;
+        ///
+        ///        &lt;div class=&quot;row-fluid&quot;&gt;
+        ///            &lt;div class=&quot;box&quot;&gt;
+        ///                &lt;div class=&quot;span2&quot;&gt;
+        ///                &lt;/div&gt;
+        ///                &lt;div class=&quot;span8&quot;&gt;
+        ///                    &lt;p style=&quot;font-size:26px; line-height: 54px; text-align: center; margin: 0px;&quot;&gt;Demo and Debug&lt;/p&gt;
+        ///                &lt;/div&gt;
+        ///                &lt;div class=&quot;span2&quot;  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SettingsHome {
+            get {
+                return ResourceManager.GetString("SettingsHome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @model MultiPlug.Base.Http.EdgeApp
+        ///@functions {
+        ///    public string NavLocationIsHome()
+        ///    {
+        ///        return Model.Context.Paths.Current == Model.Context.Paths.Home ? &quot;active&quot; : string.Empty;
+        ///    }
+        ///
+        ///    public string NavLocationIsSubscriptions()
+        ///    {
+        ///        return Model.Context.Paths.Current == Model.Context.Paths.Home + &quot;subscriptions/&quot; ? &quot;active&quot; : string.Empty;
+        ///    }
+        ///
+        ///    public string NavLocationIsExceptions()
+        ///    {
+        ///        return Model.Context.Paths.Current.StartsWith(Model.Context.Paths. [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SettingsNavigation {
+            get {
+                return ResourceManager.GetString("SettingsNavigation", resourceCulture);
             }
         }
     }

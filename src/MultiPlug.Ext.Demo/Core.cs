@@ -3,6 +3,8 @@ using MultiPlug.Base.Exchange;
 using MultiPlug.Ext.Demo.Components.Timer;
 using MultiPlug.Ext.Demo.Components.Exceptions;
 using MultiPlug.Ext.Demo.Components.EventTrace;
+using MultiPlug.Ext.Demo.Components.Ping;
+using System;
 
 namespace MultiPlug.Ext.Demo
 {
@@ -11,8 +13,8 @@ namespace MultiPlug.Ext.Demo
         private static Core m_Instance = null;
 
         private TimerComponent Timer = new TimerComponent();
-        private EventExceptionComponent m_EventException = new EventExceptionComponent();
-        private ThreadExceptionComponent m_ThreadException = new ThreadExceptionComponent();
+        public ThreadExceptionComponent ThreadException = new ThreadExceptionComponent();
+        private PingComponent m_PingComponent = new PingComponent();
 
         [DataMember]
         public EventTraceComponent EventTrace { get; private set; } = new EventTraceComponent();
@@ -29,9 +31,6 @@ namespace MultiPlug.Ext.Demo
             }
         }
 
-        public string EventExceptionId { get { return m_EventException.Event.Id;  } }
-        public string ThreadedEventExceptionId { get { return m_ThreadException.Event.Id; } }
-
         private Core()
         {
         }
@@ -42,18 +41,18 @@ namespace MultiPlug.Ext.Demo
             {
                 Timer.Properties.Start,
                 Timer.Properties.Stop,
-                m_EventException.Event,
-                m_ThreadException.Event
+                m_PingComponent.Event
             };
         }
 
-        public Subscription[] Subscriptions()
+        internal void Initialise()
         {
-            return new Subscription[]
-            {
-                m_EventException.Subscription,
-                m_ThreadException.Subscription
-            };
+            m_PingComponent.Initialise();
+        }
+
+        internal void Start()
+        {
+            m_PingComponent.Start();
         }
 
         public EventExternal[] EventsExternal()
@@ -61,9 +60,7 @@ namespace MultiPlug.Ext.Demo
             return new EventExternal[]
             {
                 Timer.Properties.Start,
-                Timer.Properties.Stop,
-                m_EventException.Event,
-                m_ThreadException.Event
+                Timer.Properties.Stop
             };
         }
     }

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>MultiPlug.Ext.Demo</id>
-    <version>1.0.19</version>
+    <version>1.0.20</version>
     <title>MultiPlug Extension Demo</title>
     <authors>MultiPlugHub</authors>
     <owners>MultiPlugHub</owners>
@@ -21,7 +21,7 @@
       <group targetFramework=".NETFramework4.7.2">
         <dependency id="MultiPlug.Base" version="1.0.64" />
         <dependency id="MultiPlug.Extension.Core" version="1.0.63" />
-        <dependency id="MultiPlug.Core" version="2.2.75" />
+        <dependency id="MultiPlug.Core" version="2.2.81" />
       </group>
     </dependencies>
   </metadata>

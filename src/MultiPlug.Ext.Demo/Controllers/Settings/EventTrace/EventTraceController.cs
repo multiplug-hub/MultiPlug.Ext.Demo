@@ -4,10 +4,10 @@ using MultiPlug.Ext.Demo.Models.Apps;
 
 namespace MultiPlug.Ext.Demo.Controllers.Settings.EventTrace
 {
-    [Route("")]
-    public class SettingsEventTraceController : SettingsApp
+    [Route("subscriptions")]
+    public class EventTraceController : SettingsApp
     {
-        public Response Get(string id)
+        public Response Get()
         {
             return new Response
             {
@@ -20,7 +20,7 @@ namespace MultiPlug.Ext.Demo.Controllers.Settings.EventTrace
         {
             if (theModel != null && theModel.SubscriptionId != null )
             {
-                Core.Instance.EventTrace.Update(new Models.Components.EventTrace.EventTraceProperties { Subscriptions = theModel.SubscriptionId } );
+                Core.Instance.EventTrace.AddSubscriptions(theModel.SubscriptionId);
             }
 
             return new Response
