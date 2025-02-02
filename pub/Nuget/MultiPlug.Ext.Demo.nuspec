@@ -10,6 +10,7 @@
     <icon>images\multiplugico.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A visual demonstration of a MultiPlug Extension</description>
+    <repository type="git" url="https://github.com/multiplug-hub/MultiPlug.Ext.Demo" />
     <license type="expression">MIT</license>
     <releaseNotes>Change Log:
 1.0.19 Released to MultiPlug Community
