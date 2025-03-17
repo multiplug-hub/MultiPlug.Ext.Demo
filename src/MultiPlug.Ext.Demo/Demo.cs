@@ -6,6 +6,7 @@ using MultiPlug.Ext.Demo.Controllers;
 using MultiPlug.Ext.Demo.Properties;
 using MultiPlug.Extension.Core.Http;
 using MultiPlug.Ext.Demo.Components.SettingsFile;
+using MultiPlug.Ext.Demo.Controllers.Settings.Notifications;
 
 namespace MultiPlug.Ext.Demo
 {
@@ -39,6 +40,8 @@ namespace MultiPlug.Ext.Demo
                 SettingsFileComponent.Instance.Save(LocalSettings);
                 throw new Exception("Constructor Exception");
             }
+
+            NotificationsController.MultiPlugServices = this.MultiPlugServices;
         }
 
 
@@ -76,6 +79,7 @@ namespace MultiPlug.Ext.Demo
                     new RazorTemplate(Templates.SettingsHome, Resources.SettingsHome),
                     new RazorTemplate(Templates.SettingsEventTrace, Resources.SettingsEventTrace),
                     new RazorTemplate(Templates.SettingsExceptions, Resources.SettingsExceptions),
+                    new RazorTemplate(Templates.SettingsNotifications, Resources.SettingsNotifications),
                     new RazorTemplate("Demo-Home" , Resources.Home_cshtml),
                     new RazorTemplate("Demo-Home2", "@model MultiPlug.Base.Http.EdgeApp\r\n<html><body><h1>Demo2</h1></body></html>"),
                     new RazorTemplate("Demo-Projector", Resources.ProjectorApp),

@@ -31,12 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MultiPlug.Base, Version=1.0.64.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\MultiPlug.Base.1.0.64\lib\net472\MultiPlug.Base.dll</HintPath>
+    <Reference Include="MultiPlug.Base, Version=1.0.75.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\i4Core\Connector\packages\MultiPlug.Base.1.0.75\lib\net472\MultiPlug.Base.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MultiPlug.Extension.Core, Version=1.0.63.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\MultiPlug.Extension.Core.1.0.63\lib\net472\MultiPlug.Extension.Core.dll</HintPath>
+    <Reference Include="MultiPlug.Extension.Core, Version=1.0.64.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MultiPlug.Extension.Core.1.0.64\lib\net472\MultiPlug.Extension.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -67,6 +67,7 @@
     <Compile Include="Controllers\Settings\Exceptions\ExceptionsController.cs" />
     <Compile Include="Controllers\Settings\Exceptions\UnhandledExceptionController.cs" />
     <Compile Include="Controllers\Settings\Home\HomeController.cs" />
+    <Compile Include="Controllers\Settings\Notifications\NotificationsController.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="Demo.cs" />
     <Compile Include="Models\Apps\SubscriptionsPostModel.cs" />
@@ -112,6 +113,7 @@
     <None Include="Controllers\Settings\EventTrace\SettingsEventTrace.cshtml" />
     <None Include="Controllers\Settings\Exceptions\SettingsExceptions.cshtml" />
     <None Include="Controllers\Settings\Home\SettingsHome.cshtml" />
+    <None Include="Controllers\Settings\Notifications\SettingsNotifications.cshtml" />
     <None Include="Controllers\Settings\SharedRazor\SettingsNavigation.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>

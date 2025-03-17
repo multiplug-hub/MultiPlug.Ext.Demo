@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>MultiPlug.Ext.Demo</id>
-    <version>1.0.20</version>
+    <version>1.0.21</version>
     <title>MultiPlug Extension Demo</title>
     <authors>MultiPlugHub</authors>
     <owners>MultiPlugHub</owners>
@@ -13,6 +13,8 @@
     <repository type="git" url="https://github.com/multiplug-hub/MultiPlug.Ext.Demo" />
     <license type="expression">MIT</license>
     <releaseNotes>Change Log:
+1.0.21 Notifications added in MultiPlug 2.2.82
+1.0.20 Big Tidy up, Added Exception Handing Testing
 1.0.19 Released to MultiPlug Community
 1.0.18 Event Tracing App
 </releaseNotes>

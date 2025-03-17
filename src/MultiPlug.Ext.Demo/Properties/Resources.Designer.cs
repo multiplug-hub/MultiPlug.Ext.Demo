@@ -246,17 +246,21 @@ namespace MultiPlug.Ext.Demo.Properties {
         /// <summary>
         ///   Looks up a localized string similar to @model MultiPlug.Base.Http.EdgeApp
         ///
-        ///&lt;form action=&quot;&quot; method=&quot;post&quot; accept-charset=&quot;utf-8&quot; enctype=&quot;application/x-www-form-urlencoded&quot;&gt;
-        ///    &lt;section class=&quot;row-fluid&quot;&gt;
+        ///&lt;section class=&quot;row-fluid&quot;&gt;
+        ///    &lt;div class=&quot;row-fluid&quot;&gt;
+        ///        &lt;div class=&quot;box&quot;&gt;
+        ///            &lt;div class=&quot;span12&quot;&gt;
+        ///                &lt;p style=&quot;font-size:26px; line-height: 54px; text-align: center; margin: 0px;&quot;&gt;Demo and Debug&lt;/p&gt;
+        ///            &lt;/div&gt;
+        ///        &lt;/div&gt;
+        ///    &lt;/div&gt;
         ///
-        ///        &lt;div class=&quot;row-fluid&quot;&gt;
-        ///            &lt;div class=&quot;box&quot;&gt;
-        ///                &lt;div class=&quot;span2&quot;&gt;
-        ///                &lt;/div&gt;
-        ///                &lt;div class=&quot;span8&quot;&gt;
-        ///                    &lt;p style=&quot;font-size:26px; line-height: 54px; text-align: center; margin: 0px;&quot;&gt;Demo and Debug&lt;/p&gt;
-        ///                &lt;/div&gt;
-        ///                &lt;div class=&quot;span2&quot;  [rest of string was truncated]&quot;;.
+        ///    @Include(&quot;MultiPlug.Ext.Demo.Demo_Settings_Navigation&quot;)
+        ///
+        ///    &lt;div class=&quot;row-fluid&quot;&gt;
+        ///        &lt;div class=&quot;span12&quot;&gt;
+        ///            &lt;h3 class=&quot;box-header&quot;&gt;About&lt;/h3&gt;
+        ///            &lt;div clas [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SettingsHome {
             get {
@@ -284,6 +288,27 @@ namespace MultiPlug.Ext.Demo.Properties {
         internal static string SettingsNavigation {
             get {
                 return ResourceManager.GetString("SettingsNavigation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///using System.Collections.Generic;
+        ///using System.Linq;
+        ///using System.Text;
+        ///using System.Threading.Tasks;
+        ///
+        ///namespace MultiPlug.Ext.Demo.Controllers.Settings.Notifications
+        ///{
+        ///    class SettingsNotifications
+        ///    {
+        ///    }
+        ///}
+        ///.
+        /// </summary>
+        internal static string SettingsNotifications {
+            get {
+                return ResourceManager.GetString("SettingsNotifications", resourceCulture);
             }
         }
     }

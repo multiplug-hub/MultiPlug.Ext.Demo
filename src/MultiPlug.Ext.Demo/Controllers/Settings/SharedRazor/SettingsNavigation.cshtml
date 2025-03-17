@@ -10,6 +10,11 @@
         return Model.Context.Paths.Current == Model.Context.Paths.Home + "subscriptions/" ? "active" : string.Empty;
     }
 
+    public string NavLocationIsNotifications()
+    {
+        return Model.Context.Paths.Current.StartsWith(Model.Context.Paths.Home + "notifications/") ? "active" : string.Empty;
+    }
+
     public string NavLocationIsExceptions()
     {
         return Model.Context.Paths.Current.StartsWith(Model.Context.Paths.Home + "exceptions/") ? "active" : string.Empty;
@@ -20,6 +25,7 @@
     <ul class="nav nav-tabs">
         <li class="@NavLocationIsHome()"><a href="@Raw(Model.Context.Paths.Home)">Home</a></li>
         <li class="@NavLocationIsSubscriptions()"><a href="@Raw(Model.Context.Paths.Home)subscriptions/">Subscriptions</a></li>
+        <li class="@NavLocationIsNotifications()"><a href="@Raw(Model.Context.Paths.Home)notifications/">Notifications</a></li>
         <li class="@NavLocationIsExceptions()"><a href="@Raw(Model.Context.Paths.Home)exceptions/">Exceptions</a></li>
     </ul>
 </div>
